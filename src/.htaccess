@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteBase /
+RewriteRule ^install.sh$ install.php
+RewriteRule ^(.*).html$ $1.php

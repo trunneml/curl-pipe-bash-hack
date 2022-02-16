@@ -2,3 +2,4 @@ RewriteEngine on
 RewriteBase /
 RewriteRule ^install.sh$ install.php
 RewriteRule ^(.*).html$ $1.php
+RewriteRule ^download/(.+).tar.gz$ download.php?id=$1

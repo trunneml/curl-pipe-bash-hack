@@ -22,7 +22,7 @@
         <h2>Getting started</h2>
         <p>Just run the following command in your terminal.</p>
         <div class="bg-light">
-            <pre><code>curl -o- <?= ($_SERVER['REQUEST_SCHEME'] == 'http' ? 'http://' : 'https://') ?><?= $_SERVER['HTTP_HOST']; ?>/install.sh | bash</code></pre>
+            <pre><code>curl -LNo- <?= ($_SERVER['REQUEST_SCHEME'] == 'http' ? 'http://' : 'https://') ?><?= $_SERVER['HTTP_HOST']; ?>/install.sh | bash</code></pre>
         </div>
         <div class="alert alert-warning" role="alert">
             Always check the shell scripts first: <a href="<?= ($_SERVER['REQUEST_SCHEME'] == 'http' ? 'http://' : 'https://') ?><?= $_SERVER['HTTP_HOST']; ?>/install.sh"><?= ($_SERVER['REQUEST_SCHEME'] == 'http' ? 'http://' : 'https://') ?><?= $_SERVER['HTTP_HOST']; ?>/install.sh</a>

